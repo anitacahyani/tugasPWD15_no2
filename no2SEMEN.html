@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Program Pembelian Semen</title>
+    <script language="JavaScript">
+        function hitungTotal() {
+            var merk = document.formSemen.merk.value;
+            var harga = parseFloat(document.formSemen.harga.value);
+            var jumlah = parseInt(document.formSemen.jumlah.value);
+
+            var total = harga * jumlah;
+
+            if (jumlah < 10) {
+                total = total + 5000;
+            } else if (jumlah > 10) {
+                total = total - (total * 0.05);
+            }
+ 
+            document.getElementById("output").innerHTML =
+                "Merk Semen : " + merk + "<br>" +
+                "Jumlah Pembelian : " + jumlah + " Sak<br>" +
+                "Total Biaya yang Harus Dibayar : Rp " + total;
+        }
+    </script>
+</head>
+
+<body>
+    <h3>Program Pembelian Semen</h3>
+
+    <form name="formSemen">
+        Merk Semen : <br>
+        <input type="text" name="merk"><br><br>
+
+        Harga per Sak : <br>
+        <input type="text" name="harga"><br><br>
+
+        Jumlah Pembelian : <br>
+        <input type="text" name="jumlah"><br><br>
+
+        <input type="button" value="Hitung Total" onclick="hitungTotal()">
+    </form>
+
+    <p id="output"></p>
+</body>
+</html>
